@@ -17,8 +17,8 @@ import {
 import ImprovedAITaskCreator from './ImprovedAITaskCreator';
 import NotesManager from './NotesManager';
 
-// Mock API functions (replace with actual API calls)
-const API_BASE = 'http://localhost:5000/api';
+// API Configuration - works in both development and production
+const API_BASE = process.env.REACT_APP_API_URL || 'http://localhost:5000/api';
 
 class TaskAPI {
   static token = localStorage.getItem('token');

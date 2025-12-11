@@ -16,6 +16,9 @@
   ],
   "author": "Your Name",
   "license": "MIT",
+  "engines": {
+    "node": ">=14.x"
+  },
   "dependencies": {
     "@google/genai": "^1.18.0",
     "axios": "^1.11.0",
