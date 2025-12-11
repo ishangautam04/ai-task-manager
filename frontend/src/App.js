@@ -151,7 +151,7 @@ const AuthForm = ({ onLogin }) => {
 
     try {
       // Get demo token from backend
-      const response = await fetch('/api/auth/demo', {
+      const response = await fetch(`${API_BASE}/auth/demo`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' }
       });
