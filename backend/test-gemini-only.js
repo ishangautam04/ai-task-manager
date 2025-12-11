@@ -29,16 +29,18 @@ async function testGeminiAPI() {
     const { GoogleGenAI } = require('@google/genai');
     console.log('\n🧪 Initializing Gemini client...');
     
-    const client = new GoogleGenAI({ apiKey });
+    const client = new GoogleGenAI({});
     console.log('✅ Gemini client created successfully');
     
     // Test a simple request
     console.log('\n🧠 Testing Gemini API with simple request...');
     
-    const model = client.getGenerativeModel({ model: 'gemini-2.0-flash-exp' });
-    const result = await model.generateContent('Say hello and confirm you are working. Respond with just: "Hello! Gemini API is working perfectly."');
+    const result = await client.models.generateContent({
+      model: 'gemini-2.5-flash',
+      contents: 'Say hello and confirm you are working. Respond with just: "Hello! Gemini API is working perfectly."'
+    });
     
-    const response = result.response?.text() || 'No response received';
+    const response = result.text || 'No response received';
     console.log('✅ Gemini API Response:', response);
     
     if (response.toLowerCase().includes('hello') && response.toLowerCase().includes('working')) {
@@ -77,16 +79,18 @@ async function testGeminiStreaming() {
   try {
     console.log('\n🌊 Testing Gemini Streaming...');
     const { GoogleGenAI } = require('@google/genai');
-    const client = new GoogleGenAI({ apiKey });
+    const client = new GoogleGenAI({});
     
-    const model = client.getGenerativeModel({ model: 'gemini-2.0-flash-exp' });
-    const result = await model.generateContentStream('Count from 1 to 5, each number on a new line.');
+    const result = await client.models.generateContentStream({
+      model: 'gemini-2.5-flash',
+      contents: 'Count from 1 to 5, each number on a new line.'
+    });
     
     let fullResponse = '';
     console.log('📡 Streaming response:');
     
-    for await (const chunk of result.stream) {
-      const chunkText = chunk.text();
+    for await (const chunk of result) {
+      const chunkText = chunk.text || '';
       fullResponse += chunkText;
       process.stdout.write(chunkText);
     }

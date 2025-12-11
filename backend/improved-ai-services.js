@@ -75,7 +75,7 @@ Respond with ONLY the JSON object:`;
 
       console.log('🚀 GEMINI VOICE PROCESSING STARTING...');
       const response = await this.geminiClient.models.generateContent({
-        model: 'gemini-2.0-flash-exp',
+        model: 'gemini-2.5-flash',
         contents: prompt,
       });
 
@@ -127,7 +127,7 @@ Rules:
 Return only the enhanced text without quotes or additional formatting:`;
 
       const response = await this.geminiClient.models.generateContent({
-        model: 'gemini-2.0-flash-exp',
+        model: 'gemini-2.5-flash',
         contents: prompt,
       });
 
@@ -217,7 +217,7 @@ Respond with ONLY the JSON object:`;
 
       console.log('🚀 GEMINI NOTE ANALYSIS STARTING...');
       const response = await this.geminiClient.models.generateContent({
-        model: 'gemini-2.0-flash-exp',
+        model: 'gemini-2.5-flash',
         contents: prompt,
       });
 
@@ -294,7 +294,7 @@ Sort by relevanceScore (highest first). Respond with ONLY the JSON object:`;
 
       console.log('🚀 GEMINI SEMANTIC SEARCH STARTING...');
       const response = await this.geminiClient.models.generateContent({
-        model: 'gemini-2.0-flash-exp',
+        model: 'gemini-2.5-flash',
         contents: prompt,
       });
 
@@ -417,7 +417,7 @@ Respond with ONLY the JSON object:`;
       console.log('📡 Sending request to Gemini 2.0 Flash...');
       // Use the official SDK format
       const response = await this.geminiClient.models.generateContent({
-        model: 'gemini-2.0-flash-exp',
+        model: 'gemini-2.5-flash',
         contents: prompt,
       });
 
@@ -476,7 +476,7 @@ Respond with ONLY the JSON object:`;
 
     try {
       const response = this.geminiClient.models.generateContentStream({
-        model: 'gemini-2.0-flash-exp',
+        model: 'gemini-2.5-flash',
         contents: prompt,
       });
 
@@ -727,7 +727,7 @@ Consider the complexity and typical time requirements. Return only a JSON object
 
     try {
       const result = await this.geminiClient.models.generateContent({
-        model: 'gemini-2.0-flash-exp',
+        model: 'gemini-2.5-flash',
         contents: prompt,
       });
 
@@ -825,7 +825,7 @@ Provide insights and recommendations in this JSON format:
 
     try {
       const result = await this.geminiClient.models.generateContent({
-        model: 'gemini-2.0-flash-exp',
+        model: 'gemini-2.5-flash',
         contents: prompt,
       });
 
