@@ -1,8 +1,8 @@
-# 🚀 Deployment Guide: Vercel + Cyclic
+# 🚀 Deployment Guide: Render (All-in-One)
 
 This guide will help you deploy your AI Task Manager application with:
-- **Frontend** on Vercel (React app)
-- **Backend** on Cyclic (Node.js API)
+- **Backend** on Render (Node.js API)
+- **Frontend** on Render (Static Site)
 
 ---
 

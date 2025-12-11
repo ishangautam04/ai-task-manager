@@ -16,7 +16,7 @@ const aiService = ImprovedAIService;
 const allowedOrigins = [
   'http://localhost:3000',
   'http://localhost:5000',
-  process.env.FRONTEND_URL || 'https://your-app.vercel.app'
+  process.env.FRONTEND_URL || 'https://ai-task-manager.onrender.com'
 ];
 
 app.use(cors({
@@ -24,7 +24,7 @@ app.use(cors({
     // Allow requests with no origin (like mobile apps or curl requests)
     if (!origin) return callback(null, true);
     
-    if (allowedOrigins.indexOf(origin) !== -1 || origin.endsWith('.vercel.app')) {
+    if (allowedOrigins.indexOf(origin) !== -1 || origin.endsWith('.onrender.com')) {
       callback(null, true);
     } else {
       callback(new Error('Not allowed by CORS'));
