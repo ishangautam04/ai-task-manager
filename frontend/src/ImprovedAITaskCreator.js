@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { GoogleGenAI } from '@google/genai';
 import { Sparkles, Clock, Target, Bot } from 'lucide-react';
 
+// API configuration
+const API_BASE = process.env.REACT_APP_API_URL || 'http://localhost:5000/api';
+
 const ImprovedAITaskCreator = ({ onTaskCreate, tasks = [] }) => {
   const [nlInput, setNlInput] = useState('');
   const [isProcessing, setIsProcessing] = useState(false);
@@ -25,7 +28,7 @@ const ImprovedAITaskCreator = ({ onTaskCreate, tasks = [] }) => {
   /* Temporarily disabled to avoid warnings
   const loadSmartSuggestions = async () => {
     try {
-      const response = await fetch('/api/ai/suggestions', {
+      const response = await fetch(`${API_BASE}/ai/suggestions`, {
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('token')}`
         }
@@ -115,7 +118,7 @@ JSON:`;
       const parsedTask = await processWithBackend(nlInput);
 
       // Get additional AI enhancements from backend
-      const enhanceResponse = await fetch('/api/ai/enhance-task', {
+      const enhanceResponse = await fetch(`${API_BASE}/ai/enhance-task`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -155,7 +158,7 @@ JSON:`;
 
   // Backend processing (Gemini + Hugging Face on server)
   const processWithBackend = async (text) => {
-    const response = await fetch('/api/ai/parse-task', {
+    const response = await fetch(`${API_BASE}/ai/parse-task`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -194,7 +197,7 @@ JSON:`;
     try {
       const incompleteTasks = tasks.filter(task => task.status !== 'completed').slice(0, 10);
       
-      const response = await fetch('/api/ai/analyze-batch', {
+      const response = await fetch(`${API_BASE}/ai/analyze-batch`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
