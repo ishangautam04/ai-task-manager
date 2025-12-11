@@ -1,0 +1,16 @@
+services:
+  # Backend API
+  - type: web
+    name: ai-task-manager-backend
+    env: node
+    region: oregon
+    plan: free
+    branch: main
+    rootDir: backend
+    buildCommand: npm ci
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
