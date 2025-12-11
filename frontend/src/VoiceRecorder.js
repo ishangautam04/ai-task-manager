@@ -8,7 +8,7 @@ import {
   RotateCcw, 
   Send,
   Volume2,
-  Waveform,
+  Activity,
   Loader
 } from 'lucide-react';
 
@@ -299,7 +299,7 @@ const VoiceRecorder = ({ onTranscriptionComplete, onTextEnhanced }) => {
       {/* Transcription Status */}
       {isTranscribing && (
         <div className="text-center text-blue-600 flex items-center justify-center gap-2">
-          <Waveform className="h-4 w-4 animate-pulse" />
+          <Activity className="h-4 w-4 animate-pulse" />
           <span>Listening...</span>
         </div>
       )}
